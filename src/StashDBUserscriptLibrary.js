@@ -201,7 +201,7 @@
         class StashDB extends EventTarget {
             constructor({ pageUrlCheckInterval = 50, logging = false } = {}) {
                 super();
-                this.stashUrl = 'http://localhost:9999';
+                this.stashUrl = 'http://docker.local:9999';
                 this.loggedIn = false;
                 this.userName = null;
                 this.log = new Logger(logging);
@@ -643,7 +643,7 @@
                             <div class="field">
                                 <label class="label">Stash Address</label>
                                 <div class="control">
-                                    <input id="address" class="input" type="text" placeholder="Stash Address (http://localhost:9999)" value="">
+                                    <input id="address" class="input" type="text" placeholder="Stash Address (http://docker.local:9999)" value="">
                                 </div>
                             </div>
                       
@@ -669,11 +669,11 @@
                             evt.stopPropagation();
                         });
 
-                        this.stashUrl = await GM.getValue('stashAddress', 'http://localhost:9999');
+                        this.stashUrl = await GM.getValue('stashAddress', 'http://docker.local:9999');
                         const stashAddress = document.getElementById('address');
                         stashAddress.value = this.stashUrl;
                         stashAddress.addEventListener('change', async () => {
-                            await GM.setValue('stashAddress', stashAddress.value || 'http://localhost:9999');
+                            await GM.setValue('stashAddress', stashAddress.value || 'http://docker.local:9999');
                         });
 
                         this.stashApiKey = await GM.getValue('stashApiKey', '');
