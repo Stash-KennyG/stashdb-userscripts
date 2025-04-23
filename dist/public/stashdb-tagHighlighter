@@ -115,20 +115,17 @@
                 let matchText = obfield.textContent.split(':')[1].toLowerCase().trim();
                 let matchLabel = obfield.textContent.split(':')[0].trim();
                 if (titleText.toLowerCase().includes(matchText)){
-                    console.log("Matched!",matchText);
                     highlightField(obfield);
                 } else{ //We need to check for studio smush or performer dotSpaces
-
-                    if (matchLabel == "Studio")
-                    {
-                        matchText = matchText.replace(/ /g, "");
-                    }
-                    if (matchLabel == "Performer") {
-                        matchText = matchText.replace(/ /g, ".");
-                    }
-
+                    let origMatch = matchText.replace(/\s*\(.*?\)\s*$/, "");
+                    matchText = origMatch.replace(/ /g, "");
                     if (titleText.toLowerCase().includes(matchText)){
                         highlightField(obfield);
+                    }else{
+                        matchText = origMatch.replace(/ /g, ".");
+                        if (titleText.toLowerCase().includes(matchText)){
+                            highlightField(obfield);
+                        }
                     }
                 }
             });
