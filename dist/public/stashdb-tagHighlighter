@@ -4,7 +4,8 @@
 // @version      1.0
 // @description  Highlights the Date field if all YY, MM, and DD components match in the title
 // @author       KennyG
-// @match        http://localhost:9999/scenes*
+// @match        http://mini01.shannabower.com:9999/scenes*
+// @match        http://mini01.shannabower.com:9999/groups*
 // @grant        none
 // @run-at       document-end
 // @icon        https://raw.githubusercontent.com/stashapp/stash/develop/ui/v2.5/public/favicon.png
@@ -14,7 +15,7 @@
     'use strict';
 
     // Global constant for color
-    const HIGHLIGHT_COLOR = '#00796B';  // Teal color
+    const HIGHLIGHT_COLOR = '#00796B'; // Teal color
 
     // Function to check if date components (YY, MM, DD) are found in the title
     function checkDateInTitle(dateText, titleText) {
@@ -113,12 +114,20 @@
             entityFields.forEach(obfield => {
                 let matchText = obfield.textContent.split(':')[1].trim();
                 let matchLabel = obfield.textContent.split(':')[0].trim();
-                if (matchLabel == "Studio")
-                {
-                    matchText = matchText.replace(/ /g, "");
-                }
                 if (titleText.includes(matchText)){
                     highlightField(obfield);
+                } else{ //We need to check for studio smush or performer dotSpaces
+                    if (matchLabel == "Studio")
+                    {
+                        matchText = matchText.replace(/ /g, "");
+                    }
+                    if (matchLabel == "Performer") {
+                        matchText = matchText.replace(/ /g, ".");
+                    }
+
+                    if (titleText.includes(matchText)){
+                        highlightField(obfield);
+                    }
                 }
             });
         });
@@ -131,3 +140,4 @@
     // Initial execution of the highlightDateMatches function when the page is loaded
     window.addEventListener('load', highlightMatches);
 })();
+
