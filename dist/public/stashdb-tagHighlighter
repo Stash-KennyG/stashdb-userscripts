@@ -112,11 +112,13 @@
             // Get the entities, loop through and highlight
             let entityFields = searchItem.querySelectorAll('.entity-name');
             entityFields.forEach(obfield => {
-                let matchText = obfield.textContent.split(':')[1].trim();
+                let matchText = obfield.textContent.split(':')[1].toLowerCase().trim();
                 let matchLabel = obfield.textContent.split(':')[0].trim();
-                if (titleText.includes(matchText)){
+                if (titleText.toLowerCase().includes(matchText)){
+                    console.log("Matched!",matchText);
                     highlightField(obfield);
                 } else{ //We need to check for studio smush or performer dotSpaces
+
                     if (matchLabel == "Studio")
                     {
                         matchText = matchText.replace(/ /g, "");
@@ -125,7 +127,7 @@
                         matchText = matchText.replace(/ /g, ".");
                     }
 
-                    if (titleText.includes(matchText)){
+                    if (titleText.toLowerCase().includes(matchText)){
                         highlightField(obfield);
                     }
                 }
