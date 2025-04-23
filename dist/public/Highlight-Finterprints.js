@@ -4,7 +4,7 @@
 // @version      1.0
 // @description  Highlights the div containing fingerprints
 // @author       KennyG
-// @match        http://localhost:9999/scenes*
+// @match        http://mini01.shannabower.com:9999/scenes*
 // @grant        none
 // @run-at       document-end
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
@@ -15,29 +15,29 @@
 
     const COLOR_RULES = [
         {
-            range: [0, 20],
+            range: [0, 10],
             colors: [
-                { threshold: 0.25, color: '#FF0000' },
-                { threshold: 0.60, color: '#FFA500' },
-                { threshold: 1.00, color: '#008000' }
+                { threshold: 0.45, color: '#B71C1C' }, //Crimson
+                { threshold: 0.60, color: '#FF6F00' }, //Orange800
+                { threshold: 1.00, color: '#00796B' } //Pine Green
             ]
         },
         {
-            range: [21, 50],
+            range: [11, 50],
             colors: [
-                { threshold: 0.30, color: '#FF0000' },
-                { threshold: 0.60, color: '#FFA500' },
-                { threshold: 0.75, color: '#00FFFF' },
-                { threshold: 1.00, color: '#008000' }
+                { threshold: 0.30, color: '#B71C1C' }, //Crimson
+                { threshold: 0.50, color: '#FF6F00' }, //Orange800
+                { threshold: 0.75, color: '#BBBE64' }, //Citron
+                { threshold: 1.00, color: '#00796B' } //Pine Green
             ]
         },
         {
             range: [51, Infinity],
             colors: [
-                { threshold: 0.25, color: '#FF0000' },
-                { threshold: 0.45, color: '#FFA500' },
-                { threshold: 0.65, color: '#00FFFF' },
-                { threshold: 1.00, color: '#008000' }
+                { threshold: 0.20, color: '#B71C1C' }, //Crimson
+                { threshold: 0.40, color: '#FF6F00' }, //Orange800
+                { threshold: 0.75, color: '#BBBE64' }, //Citron
+                { threshold: 1.00, color: '#00796B' } //Pine Green
             ]
         }
     ];
@@ -77,7 +77,7 @@
                     }
 
                     div.style.backgroundColor = color;
-                    div.style.color = '#000';
+                    div.style.color = '#FFFFFF'; //Text White
                 }
             }
         });
