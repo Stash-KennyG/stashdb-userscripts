@@ -5,6 +5,7 @@
 // @description  Highlights scene tag blocks in cyan if they include "Virtual Reality"
 // @match        https://stashdb.org/scenes*
 // @grant        none
+// @run-at       document-end
 // @icon        https://raw.githubusercontent.com/stashapp/stash/develop/ui/v2.5/public/favicon.png
 // ==/UserScript==
 
