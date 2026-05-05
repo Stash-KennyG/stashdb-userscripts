@@ -4,7 +4,7 @@
 // @version      1.0
 // @description  Highlights the div containing fingerprints
 // @author       KennyG
-// @match        http://mini01.[REDACTED]:9999/scenes*
+// @match        http://localhost:9999/scenes*
 // @grant        none
 // @run-at       document-end
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
